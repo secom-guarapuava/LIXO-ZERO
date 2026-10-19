@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Semana Lixo Zero Guarapuava</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Manual de separação de resíduos das secretarias municipais de Guarapuava para a Semana Lixo Zero Paraná 2026: reciclável, orgânico, compostagem e o que fazer no seu setor.">
+<meta property="og:title" content="O dever começa por nós · Semana Lixo Zero">
+<meta property="og:description" content="Manual de separação de resíduos das secretarias municipais de Guarapuava. Reciclável de um lado, orgânico do outro.">
+<meta name="theme-color" content="#08251A">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Space+Grotesk:wght@400..700&display=swap">
+<style>
+/* Fontes locais de reserva: valem quando o Google Fonts não carregar */
+@font-face{font-family:'BG Local';src:url('assets/fonts/bricolage-grotesque.woff2') format('woff2');font-weight:200 800;font-display:swap}
+@font-face{font-family:'SG Local';src:url('assets/fonts/space-grotesk.woff2') format('woff2');font-weight:300 700;font-display:swap}
+
+/* Layout: faixas de largura total que alternam floresta, papel e verde (linguagem do APP Guarapuava Mais Verde),
+   cada uma com um capítulo numerado do manual; trilho de capítulos fixo à direita no desktop. */
+:root{
+  --forest:#08251A; --forest-2:#0C3A28; --forest-3:#051A12;
+  --brand:#2FA15A; --brand-d:#0E6B3E;
+  --paper:#F1E8D2; --paper-hi:#F8F1DF; --ink:#123A28; --ink-soft:#4F6656;
+  --sun:#F2B705; --terra:#E4682C; --blue:#2E86C1;
+  --rec:#F2BF5B; --rec-soft:#FBEBC4; --org:#3A1A10; --org-2:#55301F; --org-ink:#F6E7D3;
+  --teal:#073A3E; --teal-2:#0C5B57;
+  --cream-text:#F4EFE0; --muted-dark:#A9C4B4;
+  --rejeito:#6E7469; --especial:#E4682C;
+  --display:'Bricolage Grotesque','BG Local',ui-sans-serif,system-ui,sans-serif;
+  --body:'Space Grotesk','SG Local',ui-sans-serif,system-ui,sans-serif;
+  --ease:cubic-bezier(.22,.9,.24,1);
+  --gut:max(16px, env(safe-area-inset-left, 0px));
+  --gut-r:max(16px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--body);background:var(--forest);color:var(--cream-text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;font-size:16px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--forest)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,.display{font-family:var(--display);font-weight:800;line-height:.95;letter-spacing:-.025em;text-wrap:balance}
+::selection{background:var(--sun);color:var(--forest)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+
+.grain{position:fixed;inset:0;z-index:70;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- faixas ---------- */
+.band{position:relative;overflow:hidden;isolation:isolate}
+.wrap{max-width:1180px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r);padding-block:clamp(72px,10vw,128px);position:relative;z-index:2}
+@media(min-width:760px){.wrap{padding-left:max(40px, env(safe-area-inset-left, 0px));padding-right:max(40px, env(safe-area-inset-right, 0px))}}
+.t-dark{background:radial-gradient(120% 130% at 78% 15%,#0E3B28 0%,var(--forest) 55%,var(--forest-3) 100%);color:var(--cream-text);--muted:var(--muted-dark);--line:rgba(244,239,224,.16)}
+.t-paper{background:radial-gradient(120% 120% at 15% 12%,#F7EFDA 0%,#EFE4C7 60%,#E7D9B6 100%);color:var(--ink);--muted:var(--ink-soft);--line:rgba(18,58,40,.16)}
+.t-light{background:var(--paper-hi);color:var(--ink);--muted:var(--ink-soft);--line:rgba(18,58,40,.14)}
+.t-green{background:radial-gradient(120% 130% at 20% 20%,#1AA05C 0%,#0E7A45 55%,#0A5E37 100%);color:#F2FBEF;--muted:#CDEBD6;--line:rgba(242,251,239,.22)}
+.t-teal{background:radial-gradient(120% 120% at 82% 20%,var(--teal-2) 0%,var(--teal) 55%,#052a2e 100%);color:#EAF6F2;--muted:#9FC8C4;--line:rgba(234,246,242,.18)}
+
+.ghost{position:absolute;right:-2vw;top:clamp(20px,4vw,60px);font-family:var(--display);font-weight:800;line-height:1;
+  font-size:clamp(160px,26vw,380px);color:transparent;-webkit-text-stroke:1.5px currentColor;opacity:.09;z-index:0;user-select:none;pointer-events:none;letter-spacing:-.04em}
+
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-weight:600;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;opacity:.85}
+.eyebrow::before{content:"";width:26px;height:2px;background:currentColor;opacity:.6}
+.head{display:grid;gap:18px;max-width:780px;margin-bottom:clamp(36px,5vw,56px)}
+.head h2{font-size:clamp(38px,5.6vw,80px)}
+.lead{font-size:clamp(17px,1.45vw,20px);line-height:1.6;max-width:60ch;color:var(--muted)}
+.lead b{color:currentColor;font-weight:600}
+.t-dark .lead b,.t-teal .lead b,.t-green .lead b{color:#fff}
+.t-paper .lead b,.t-light .lead b{color:var(--ink)}
+
+/* ---------- botões ---------- */
+.btn{position:relative;display:inline-flex;align-items:center;gap:12px;font-family:var(--body);font-weight:600;font-size:16px;letter-spacing:.01em;
+  padding:15px 24px;border-radius:999px;cursor:pointer;border:1.5px solid currentColor;background:transparent;color:inherit;overflow:hidden;
+  text-decoration:none;transition:color .4s var(--ease),border-color .4s var(--ease);z-index:1;line-height:1.2}
+.btn>*{position:relative;z-index:2}
+.btn::before{content:"";position:absolute;inset:0;background:var(--sun);transform:translateY(101%);transition:transform .45s var(--ease);z-index:1;border-radius:999px}
+.btn:hover{color:var(--forest);border-color:var(--sun)}
+.btn:hover::before{transform:translateY(0)}
+.btn svg{width:18px;height:18px;stroke:currentColor;stroke-width:2.2;fill:none;transition:transform .4s var(--ease);flex:0 0 auto}
+.btn:hover svg{transform:translateX(4px)}
+.btn.solid{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn.dark{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn.small{padding:11px 18px;font-size:14.5px}
+
+/* ---------- topo ---------- */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .35s var(--ease),box-shadow .35s var(--ease)}
+.topbar.scrolled{background:rgba(8,37,26,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(244,239,224,.08)}
+.topbar-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px))}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--cream-text);min-width:0}
+.brand img{height:34px;width:auto}
+.brand b{font-family:var(--display);font-weight:800;font-size:16px;letter-spacing:-.01em;display:block;line-height:1.05}
+.brand small{display:block;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.7;white-space:nowrap}
+.nav{display:flex;gap:2px}
+.nav a{text-decoration:none;color:var(--cream-text);font-weight:500;font-size:14px;padding:8px 13px;border-radius:999px;transition:background .25s,color .25s}
+.nav a:hover{background:var(--sun);color:var(--forest)}
+.top-chip{display:none;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--forest);background:var(--sun);border-radius:999px;padding:7px 12px;text-decoration:none;white-space:nowrap}
+@keyframes pulse{50%{opacity:.25}}
+.progress{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--sun);transform-origin:0 50%;transform:scaleX(0)}
+@media(max-width:940px){.nav{display:none}.top-chip{display:inline-flex}}
+@media(max-width:380px){.brand small{display:none}}
+
+/* trilho de capítulos */
+.rail{position:fixed;right:max(18px, env(safe-area-inset-right, 0px));top:50%;transform:translateY(-50%);z-index:40;display:none;flex-direction:column;gap:6px;list-style:none;
+  padding:10px 6px;border-radius:999px;background:rgba(8,37,26,.55);backdrop-filter:blur(8px)}
+.rail a{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font-size:11px;font-weight:700;color:rgba(244,239,224,.7);text-decoration:none;position:relative;transition:background .3s,color .3s}
+.rail a:hover,.rail a.on{background:var(--sun);color:var(--forest)}
+.rail a span{position:absolute;right:40px;white-space:nowrap;background:var(--forest);color:var(--cream-text);font-weight:600;font-size:12px;padding:5px 10px;border-radius:8px;opacity:0;pointer-events:none;transform:translateX(6px);transition:.25s var(--ease)}
+.rail a:hover span,.rail a:focus-visible span{opacity:1;transform:none}
+@media(min-width:1280px){.rail{display:flex}}
+
+/* ---------- HERO ---------- */
+.hero .wrap{padding-top:clamp(120px,14vw,160px);padding-bottom:clamp(56px,8vw,96px);display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,56px);align-items:center}
+.hero-txt{min-width:0}
+.introTop{display:flex;align-items:center;gap:14px;margin-bottom:30px;flex-wrap:wrap}
+.introTop img{height:46px;width:auto}
+.introTop .eyebrow{opacity:.9}
+.hero h1{font-size:clamp(60px,9vw,150px);letter-spacing:-.045em;line-height:.88}
+.hero h1 .l2{display:block;color:var(--sun)}
+.hero .sub{margin:26px 0 30px;font-size:clamp(18px,1.6vw,22px);line-height:1.45;max-width:36ch;color:var(--muted)}
+.hero .sub b{color:#fff;font-weight:600}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero-art{position:relative;min-height:520px;display:flex;justify-content:center;align-items:flex-end}
+.hero-art::after{content:"";position:absolute;width:86%;aspect-ratio:1;max-width:100%;left:7%;top:6%;border-radius:50%;background:radial-gradient(circle,rgba(242,183,5,.42),rgba(242,183,5,0) 66%);filter:blur(12px);z-index:0}
+.hero-art .mascot{position:relative;z-index:3;height:500px;width:auto;filter:drop-shadow(0 40px 40px rgba(0,0,0,.45));animation:bob 5s var(--ease) infinite}
+.hero-art .placa{position:absolute;z-index:2;width:58%;border-radius:14px;box-shadow:0 24px 50px rgba(0,0,0,.4);border:4px solid #fff}
+.hero-art .p1{left:-14%;top:0;transform:rotate(-8deg)}
+.hero-art .p2{right:-14%;top:46%;transform:rotate(6deg)}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-18px) rotate(1deg)}}
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-art{min-height:0;order:-1;margin-top:-10px}
+  .hero-art .mascot{height:300px}
+  .hero-art .placa{width:42%}
+  .hero-art .p1{left:0;top:6%}.hero-art .p2{right:0;top:40%}
+}
+@media(max-width:480px){.hero-art .mascot{height:250px}.hero-art .placa{width:44%;border-width:3px;border-radius:10px}}
+
+.marquee{overflow:hidden;white-space:nowrap;border-top:1px solid var(--line);padding:18px 0;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);position:relative;z-index:2}
+.marquee div{display:inline-block;animation:mq 26s linear infinite;font-family:var(--display);font-weight:700;font-size:clamp(26px,3.4vw,48px);letter-spacing:-.02em}
+.marquee span{margin:0 22px;opacity:.28}
+.marquee .dot{color:var(--terra);opacity:1;margin:0}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- 01 por que ---------- */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.wcard{border:1px solid var(--line);border-radius:20px;padding:26px 24px 28px;background:rgba(255,255,255,.4);display:grid;gap:10px;align-content:start;min-width:0}
+.wcard .k{font-family:var(--display);font-weight:800;font-size:clamp(40px,4.6vw,60px);line-height:1;letter-spacing:-.03em;color:var(--brand-d)}
+.wcard h3{font-size:22px;letter-spacing:-.015em;line-height:1.1}
+.wcard p{font-size:15.5px;color:var(--muted)}
+.wcard .src{font-size:12px;letter-spacing:.04em;opacity:.75;margin-top:4px}
+@media(max-width:820px){.why{grid-template-columns:1fr}}
+
+/* ---------- 02 lixeiras ---------- */
+.bins-head{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+.bins-head .mascot-side{height:230px;width:auto;margin-bottom:-6px;filter:drop-shadow(0 18px 18px rgba(18,58,40,.22))}
+@media(max-width:760px){.bins-head{grid-template-columns:1fr}.bins-head .mascot-side{display:none}}
+.bins{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.bin{border-radius:28px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.bin.rec{background:var(--rec-soft);color:var(--ink);box-shadow:inset 0 0 0 2px var(--rec)}
+.bin.org{background:var(--org);color:var(--org-ink)}
+.bin-top{padding:22px 22px 0;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.bin-top img{width:150px;border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.bin.rec .bin-top img{border:3px solid var(--rec)}
+.bin.org .bin-top img{border:3px solid #fff}
+.bin-top h3{font-size:clamp(34px,3.6vw,48px)}
+.bin-top p{font-size:14px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-top:8px;opacity:.8}
+.bin-body{padding:24px 22px 0;display:grid;grid-template-columns:1fr 1fr;gap:22px;flex:1}
+.bin-body h4{font-family:var(--body);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.bin-body h4 svg{width:18px;height:18px;flex:0 0 auto}
+.bin-body ul{list-style:none;display:grid;gap:9px}
+.bin-body li{font-size:15px;line-height:1.4;padding-left:16px;position:relative}
+.bin-body li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.55}
+.bin-body li em{font-style:normal;font-size:12.5px;font-weight:700;letter-spacing:.04em;white-space:nowrap;display:inline-block;padding:1px 8px;border-radius:999px;margin-left:4px;vertical-align:1px}
+.bin.rec li em{background:rgba(18,58,40,.1)}
+.bin.org li em{background:rgba(246,231,211,.14)}
+.bin-how{margin:24px 22px 22px;padding:16px 18px;border-radius:16px;font-size:15px;line-height:1.5;display:grid;gap:4px}
+.bin-how b{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.bin.rec .bin-how{background:var(--rec)}
+.bin.org .bin-how{background:var(--org-2)}
+@media(max-width:980px){.bins{grid-template-columns:1fr}}
+@media(max-width:520px){.bin-top{grid-template-columns:1fr}.bin-top img{width:100%;max-width:260px}.bin-body{grid-template-columns:1fr}}
+
+/* ---------- 03 sobra ---------- */
+.rest{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.rcard{border:1px solid var(--line);border-radius:24px;padding:28px 26px;display:grid;gap:16px;align-content:start;background:rgba(255,255,255,.04);min-width:0}
+.rcard .tag{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.rcard .tag i{width:12px;height:12px;border-radius:4px}
+.rcard h3{font-size:clamp(28px,3vw,38px)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chips li{font-size:14.5px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05)}
+.rcard .dest{font-size:15.5px;line-height:1.55;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+.rcard .dest b{color:#fff;font-weight:600}
+.casa{margin-top:22px;border-radius:20px;padding:20px 24px;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:rgba(255,255,255,.07);border:1px dashed var(--line)}
+.casa .lbl{font-family:var(--display);font-weight:800;font-size:22px;color:var(--sun)}
+.casa p{font-size:15px;color:var(--muted);min-width:0}
+.casa p b{color:#fff;font-weight:600}
+@media(max-width:860px){.rest{grid-template-columns:1fr}.casa{grid-template-columns:1fr}}
+
+/* ---------- 04 teste ---------- */
+.quiz{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,4vw,48px);align-items:center}
+.qcard{background:var(--paper-hi);color:var(--ink);border-radius:28px;padding:clamp(22px,3vw,34px);box-shadow:0 30px 60px rgba(4,40,22,.35);min-width:0}
+.qmeta{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.qbar{height:6px;border-radius:99px;background:rgba(18,58,40,.1);margin:12px 0 22px;overflow:hidden}
+.qbar i{display:block;height:100%;width:0;background:var(--brand);border-radius:99px;transition:width .4s var(--ease)}
+.qitem{display:flex;align-items:center;gap:18px;min-height:96px}
+.qitem .emo{font-size:58px;line-height:1;width:84px;height:84px;display:grid;place-items:center;border-radius:22px;background:#fff;box-shadow:0 8px 20px rgba(18,58,40,.1);flex:0 0 auto}
+.qitem .nome{font-family:var(--display);font-weight:800;font-size:clamp(26px,2.6vw,34px);line-height:1.02;letter-spacing:-.02em}
+.qopts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.qopt{font-family:var(--body);font-weight:700;font-size:15.5px;padding:14px 12px;border-radius:16px;border:2px solid transparent;cursor:pointer;display:flex;align-items:center;gap:10px;transition:transform .2s var(--ease),box-shadow .2s,opacity .2s;color:var(--ink);text-align:left}
+.qopt:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 10px 18px rgba(18,58,40,.14)}
+.qopt i{width:14px;height:14px;border-radius:5px;flex:0 0 auto}
+.qopt[data-cat="reciclavel"]{background:var(--rec-soft)}.qopt[data-cat="reciclavel"] i{background:var(--rec)}
+.qopt[data-cat="organico"]{background:#EADBCB}.qopt[data-cat="organico"] i{background:var(--org)}
+.qopt[data-cat="rejeito"]{background:#E3E5DF}.qopt[data-cat="rejeito"] i{background:var(--rejeito)}
+.qopt[data-cat="especial"]{background:#F8DCCB}.qopt[data-cat="especial"] i{background:var(--especial)}
+.qopt:disabled{cursor:default;opacity:.45}
+.qopt.right{opacity:1;border-color:var(--brand);box-shadow:0 0 0 3px rgba(47,161,90,.2)}
+.qopt.wrong{opacity:1;border-color:var(--red,#E23B34)}
+.qfb{margin-top:18px;min-height:76px;border-radius:16px;padding:14px 16px;background:rgba(18,58,40,.06);font-size:15px;line-height:1.5;display:flex;align-items:center;gap:12px}
+.qfb b{font-weight:700}
+.qfb.ok{background:#E2F3E6}.qfb.no{background:#FBE3DC}
+.qnext{margin-top:16px;display:flex;justify-content:flex-end}
+.qend{text-align:center;display:grid;gap:12px;justify-items:center;padding:12px 0}
+.qend .score{font-family:var(--display);font-weight:800;font-size:72px;line-height:1;color:var(--brand-d)}
+.quiz-side{display:grid;gap:18px;justify-items:start}
+.quiz-side img{height:300px;width:auto;filter:drop-shadow(0 30px 30px rgba(0,0,0,.3))}
+@media(max-width:860px){.quiz{grid-template-columns:1fr}.quiz-side{display:none}}
+@media(max-width:420px){.qopts{grid-template-columns:1fr}.qitem .emo{width:68px;height:68px;font-size:44px}}
+
+/* ---------- 05 equipe ---------- */
+.team{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,64px);align-items:center}
+.team-art{display:flex;justify-content:center;position:relative}
+.team-art::before{content:"";position:absolute;inset:8% 6% 0;border-radius:40% 40% 24px 24px;background:rgba(47,161,90,.16)}
+.team-art img{position:relative;height:440px;width:auto;filter:drop-shadow(0 26px 24px rgba(18,58,40,.25))}
+.practices{display:grid;grid-template-columns:1fr 1fr;gap:16px;list-style:none;counter-reset:p}
+.practices li{border-top:2px solid var(--ink);padding-top:16px;display:grid;gap:6px;min-width:0}
+.practices h3{font-size:22px;letter-spacing:-.015em;line-height:1.1}
+.practices p{font-size:15.5px;color:var(--muted)}
+@media(max-width:860px){.team{grid-template-columns:1fr}.team-art img{height:280px}}
+@media(max-width:520px){.practices{grid-template-columns:1fr}}
+
+/* ---------- 06 cinco Rs ---------- */
+.rs{list-style:none;display:grid;border-top:1px solid var(--line)}
+.rs li{display:grid;grid-template-columns:minmax(150px,260px) 1fr;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line)}
+.rs h3{font-size:clamp(34px,4.4vw,60px);letter-spacing:-.035em}
+.rs h3 span{color:var(--sun)}
+.rs p{font-size:clamp(16px,1.4vw,19px);color:var(--muted);max-width:56ch}
+@media(max-width:620px){.rs li{grid-template-columns:1fr;gap:6px;padding:18px 0}}
+
+/* ---------- 07 compostagem ---------- */
+.comp{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.cycle{position:relative;width:100%;max-width:440px;aspect-ratio:1;margin:0 auto}
+.cycle ol{list-style:none;position:absolute;inset:0}
+.cycle::before{content:"";position:absolute;inset:12%;border-radius:50%;border:2px dashed rgba(18,58,40,.3)}
+.cycle .center{position:absolute;inset:32%;display:grid;place-items:center;text-align:center;font-family:var(--display);font-weight:800;font-size:clamp(18px,2.2vw,24px);line-height:1;color:var(--brand-d);letter-spacing:-.02em}
+.cycle li{position:absolute;width:30%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;display:grid;place-items:center;align-content:center;text-align:center;gap:2px;padding:6px;box-shadow:0 12px 24px rgba(18,58,40,.16)}
+.cycle li b{font-family:var(--display);font-size:clamp(20px,2.2vw,26px);line-height:1}
+.cycle li span{font-size:clamp(11px,1.1vw,13.5px);font-weight:600;line-height:1.15}
+.cycle .c1{left:50%;top:12%;background:#fff;color:var(--ink)}
+.cycle .c2{left:86%;top:38%;background:var(--org);color:var(--org-ink)}
+.cycle .c3{left:72%;top:80%;background:var(--rec);color:var(--ink)}
+.cycle .c4{left:28%;top:80%;background:var(--org-2);color:var(--org-ink)}
+.cycle .c5{left:14%;top:38%;background:var(--brand);color:#fff}
+.facts{display:grid;gap:18px}
+.fact{display:grid;gap:4px;padding-left:18px;border-left:3px solid var(--brand)}
+.fact h3{font-size:22px;letter-spacing:-.015em;line-height:1.1}
+.fact p{font-size:15.5px;color:var(--muted)}
+.cta-card{margin-top:clamp(36px,5vw,56px);border-radius:24px;background:var(--brand-d);color:#F2FBEF;padding:clamp(22px,3vw,32px);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+.cta-card h3{font-size:clamp(24px,2.6vw,32px)}
+.cta-card p{font-size:15.5px;color:#CDEBD6;margin-top:8px;max-width:60ch}
+.cta-card .ctas{justify-content:flex-end}
+@media(max-width:860px){.comp{grid-template-columns:1fr}.cta-card{grid-template-columns:1fr}.cta-card .ctas{justify-content:flex-start}}
+
+/* ---------- 08 no seu setor ---------- */
+.check{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,48px);align-items:start;border-radius:28px;background:var(--paper-hi);color:var(--ink);padding:clamp(22px,3.4vw,40px)}
+.check h3{font-size:clamp(30px,3.4vw,44px)}
+.check .intro p{font-size:15.5px;color:var(--ink-soft);margin-top:12px}
+.meter{margin-top:22px;display:grid;gap:8px}
+.meter .num{font-family:var(--display);font-weight:800;font-size:44px;line-height:1;color:var(--brand-d);font-variant-numeric:tabular-nums}
+.meter .bar{height:10px;border-radius:99px;background:rgba(18,58,40,.1);overflow:hidden}
+.meter .bar i{display:block;height:100%;width:0;background:var(--brand);border-radius:99px;transition:width .4s var(--ease)}
+.meter small{font-size:12.5px;color:var(--ink-soft)}
+.clist{list-style:none;display:grid;gap:8px}
+.clist label{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;padding:13px 14px;border-radius:14px;background:#fff;cursor:pointer;font-size:15.5px;line-height:1.4;transition:background .2s}
+.clist input{appearance:none;-webkit-appearance:none;width:24px;height:24px;border-radius:8px;border:2px solid var(--brand);display:grid;place-items:center;cursor:pointer;margin-top:-1px;background:#fff}
+.clist input::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px);opacity:0}
+.clist input:checked{background:var(--brand)}
+.clist input:checked::after{opacity:1}
+.clist label:has(input:checked){background:#E2F3E6}
+.clist label:has(input:checked) span{text-decoration:line-through;text-decoration-color:rgba(18,58,40,.35)}
+@media(max-width:860px){.check{grid-template-columns:1fr}}
+
+/* ---------- 09 materiais ---------- */
+.mats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.mat{border-radius:22px;background:rgba(255,255,255,.55);border:1px solid var(--line);padding:14px;display:grid;grid-template-rows:auto 1fr auto;gap:14px;min-width:0}
+.mat .thumb{border-radius:14px;overflow:hidden;aspect-ratio:9/12;background:var(--forest-2);display:grid;place-items:center}
+.mat .thumb img{width:100%;height:100%;object-fit:cover;object-position:top}
+.mat .thumb.pdf{background:#2E8B6A}
+.mat .thumb.pdf img{object-fit:cover}
+.mat .thumb.duo{grid-template-rows:1fr 1fr;gap:6px;padding:8px;background:#E7D9B6}
+.mat .thumb.duo img{border-radius:8px;object-fit:cover;height:100%}
+.mat .meta{display:grid;gap:4px;padding:0 4px}
+.mat .meta small{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.mat .meta h3{font-size:20px;letter-spacing:-.01em;line-height:1.1}
+.mat .meta p{font-size:14px;color:var(--muted)}
+.mat .btn{justify-content:center;width:100%}
+.mat .note{font-size:13px;color:var(--muted);text-align:center;padding:10px 0 4px}
+@media(max-width:1000px){.mats{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.mats{grid-template-columns:1fr}.mat .thumb{aspect-ratio:4/3}}
+
+/* ---------- rodapé ---------- */
+footer{background:var(--forest-3);color:var(--cream-text)}
+footer .wrap{padding-block:56px 40px;display:grid;gap:32px}
+.logos{display:flex;flex-wrap:wrap;align-items:center;gap:28px 40px}
+.logos .gv{height:78px;width:auto}
+.logos .pref{height:44px;width:auto}
+.logos .sec{font-family:var(--display);font-weight:800;font-size:22px;line-height:1;letter-spacing:.01em}
+.logos .sec small{display:block;font-family:var(--body);font-weight:500;font-size:10.5px;letter-spacing:.32em;margin-top:6px;opacity:.8}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;border-top:1px solid rgba(244,239,224,.12);padding-top:26px}
+.foot-grid p{font-size:14.5px;color:var(--muted-dark);max-width:62ch}
+.foot-grid p b{color:var(--cream-text);font-weight:600}
+.foot-links{list-style:none;display:grid;gap:8px;justify-items:start}
+.foot-links a{font-size:14.5px;text-decoration:none;border-bottom:1px solid rgba(244,239,224,.25);padding-bottom:2px}
+.foot-links a:hover{color:var(--sun);border-color:var(--sun)}
+.credit{font-size:12.5px;color:var(--muted-dark);opacity:.8}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr}}
+
+/* entrada do hero */
+.rise{animation:rise .8s var(--ease) both}
+.rise.d2{animation-delay:.08s}.rise.d3{animation-delay:.16s}.rise.d4{animation-delay:.24s}
+@keyframes rise{from{transform:translateY(18px)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar" id="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#inicio" aria-label="Semana Lixo Zero, início">
+      <img src="assets/img/logo-guarapuava-mais-verde.png" alt="">
+      <span><b>Semana Lixo Zero</b><small>Guarapuava Mais Verde</small></span>
+    </a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#lixeiras">Separar</a>
+      <a href="#teste">Teste</a>
+      <a href="#compostagem">Compostagem</a>
+      <a href="#materiais">Materiais</a>
+    </nav>
+    <a class="top-chip" href="#teste"><span>Teste rápido</span></a>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<ol class="rail" aria-label="Capítulos">
+  <li><a href="#por-que">01<span>Por que separar</span></a></li>
+  <li><a href="#lixeiras">02<span>As duas lixeiras</span></a></li>
+  <li><a href="#o-que-sobra">03<span>Rejeitos e especiais</span></a></li>
+  <li><a href="#teste">04<span>Onde vai isso?</span></a></li>
+  <li><a href="#equipe">05<span>Equipe de limpeza</span></a></li>
+  <li><a href="#cinco-rs">06<span>Os 5 Rs</span></a></li>
+  <li><a href="#compostagem">07<span>Compostagem</span></a></li>
+  <li><a href="#checklist">08<span>No seu setor</span></a></li>
+  <li><a href="#materiais">09<span>Materiais</span></a></li>
+</ol>
+
+<main>
+<!-- HERO -->
+<section class="band t-dark hero" id="inicio">
+  <div class="wrap">
+    <div class="hero-txt">
+      <div class="introTop rise">
+        <img src="assets/img/brasao.png" alt="Brasão de Guarapuava">
+        <span class="eyebrow">Semana Lixo Zero Paraná 2026</span>
+      </div>
+      <h1 class="rise d2">O dever começa <span class="l2">por nós.</span></h1>
+      <p class="sub rise d3">Manual de separação de resíduos das <b>secretarias municipais de Guarapuava</b>. Em cada setor, duas lixeiras: reciclável de um lado, orgânico do outro.</p>
+      <div class="ctas rise d4">
+        <a class="btn solid" href="#por-que"><span>Abrir o manual</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn" href="#teste"><span>Fazer o teste</span></a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <img class="placa p1" src="assets/img/placa-reciclavel.jpg" alt="">
+      <img class="placa p2" src="assets/img/placa-organico.jpg" alt="">
+      <img class="mascot" src="assets/img/guarazinho-acenando.png" alt="">
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true"><div><span>Repense</span><span class="dot">●</span><span>Recuse</span><span class="dot">●</span><span>Reduza</span><span class="dot">●</span><span>Reutilize</span><span class="dot">●</span><span>Recicle</span><span class="dot">●</span><span>Repense</span><span class="dot">●</span><span>Recuse</span><span class="dot">●</span><span>Reduza</span><span class="dot">●</span><span>Reutilize</span><span class="dot">●</span><span>Recicle</span><span class="dot">●</span></div></div>
+</section>
+
+<!-- 01 POR QUE -->
+<section class="band t-paper" id="por-que">
+  <span class="ghost" aria-hidden="true">01</span>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">01 · Por que separar</span>
+      <h2>Misturou, perdeu.</h2>
+      <p class="lead">No mesmo saco, reciclável e orgânico estragam um ao outro. O papel absorve gordura, a embalagem fica com resto de comida, e o que poderia voltar como matéria-prima ou virar adubo segue para o <b>aterro sanitário</b>.</p>
+    </div>
+    <div class="why">
+      <article class="wcard">
+        <span class="k">≈ 50%</span>
+        <h3>dos resíduos de uma casa são orgânicos</h3>
+        <p>Separado, todo esse volume pode virar adubo pela compostagem em vez de ocupar espaço no aterro.</p>
+        <span class="src">Fonte: Cartilha da Compostagem · Composta Paraná</span>
+      </article>
+      <article class="wcard">
+        <span class="k">Sem volta</span>
+        <h3>O aterro é o fim da linha</h3>
+        <p>O que não é reciclado nem compostado vai para o aterro sanitário, com custo alto para o município e sem nenhum reaproveitamento.</p>
+      </article>
+      <article class="wcard">
+        <span class="k">Renda</span>
+        <h3>Reciclável limpo vale mais</h3>
+        <p>Seco e limpo, ele segue para associações e cooperativas de catadores e volta para a indústria. Sujo de comida, perde o valor.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 02 LIXEIRAS -->
+<section class="band t-light" id="lixeiras">
+  <span class="ghost" aria-hidden="true">02</span>
+  <div class="wrap">
+    <div class="bins-head">
+      <div class="head">
+        <span class="eyebrow">02 · As lixeiras da secretaria</span>
+        <h2>Duas lixeiras. Uma placa em cada.</h2>
+        <p class="lead">Cada secretaria passa a ter a lixeira de <b>reciclável</b> e a de <b>orgânico</b>, identificadas com as placas do Guarapuava Mais Verde. Na dúvida, olhe a placa antes de descartar.</p>
+      </div>
+      <img class="mascot-side" src="assets/img/guarazinho-apontando.png" alt="Guarazinho, o mascote do Guarapuava Mais Verde, apontando">
+    </div>
+
+    <div class="bins">
+      <article class="bin rec" aria-labelledby="t-rec">
+        <div class="bin-top">
+          <img src="assets/img/placa-reciclavel.jpg" alt="Placa Lixo Reciclável do Guarapuava Mais Verde">
+          <div><h3 id="t-rec">Reciclável</h3><p>Seco e limpo</p></div>
+        </div>
+        <div class="bin-body">
+          <div>
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Vai aqui</h4>
+            <ul>
+              <li>Papel de escritório, rascunhos e envelopes</li>
+              <li>Caixas de papelão, desmontadas</li>
+              <li>Copos, garrafas e potes plásticos</li>
+              <li>Latas de alumínio e de aço</li>
+              <li>Potes e garrafas de vidro inteiros</li>
+              <li>Jornais e revistas</li>
+            </ul>
+          </div>
+          <div>
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Não vai</h4>
+            <ul>
+              <li>Papel sujo de comida ou gordura</li>
+              <li>Guardanapo e papel toalha usados <em>orgânico</em></li>
+              <li>Papel higiênico <em>rejeito</em></li>
+              <li>Etiquetas, fitas adesivas e fotografias <em>rejeito</em></li>
+              <li>Pilhas, lâmpadas e toners <em>especial</em></li>
+            </ul>
+          </div>
+        </div>
+        <p class="bin-how"><b>Como descartar</b>Esvazie, enxágue se precisar e deixe secar. Dobre as caixas e amasse garrafas e latas para ocupar menos espaço.</p>
+      </article>
+
+      <article class="bin org" aria-labelledby="t-org">
+        <div class="bin-top">
+          <img src="assets/img/placa-organico.jpg" alt="Placa Lixo Orgânico do Guarapuava Mais Verde">
+          <div><h3 id="t-org">Orgânico</h3><p>Compostável</p></div>
+        </div>
+        <div class="bin-body">
+          <div>
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Vai aqui</h4>
+            <ul>
+              <li>Cascas e restos de frutas, verduras e legumes</li>
+              <li>Borra e filtro de café</li>
+              <li>Erva de chimarrão</li>
+              <li>Sachês de chá, sem etiqueta e sem grampo</li>
+              <li>Cascas de ovos</li>
+              <li>Guardanapo e papel toalha usados</li>
+            </ul>
+          </div>
+          <div>
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Não vai</h4>
+            <ul>
+              <li>Copos, talheres e embalagens descartáveis <em>reciclável</em></li>
+              <li>Carnes e ossos <em>rejeito</em></li>
+              <li>Papel higiênico <em>rejeito</em></li>
+              <li>Óleo de cozinha e bitucas de cigarro <em>especial</em></li>
+            </ul>
+          </div>
+        </div>
+        <p class="bin-how"><b>Como descartar</b>Escorra os líquidos antes. Na copa, deixe a lixeira de orgânico perto da pia: é ali que aparece a maior parte dele.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 03 O QUE SOBRA -->
+<section class="band t-teal" id="o-que-sobra">
+  <span class="ghost" aria-hidden="true">03</span>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">03 · O que sobra</span>
+      <h2>Nem reciclável, nem orgânico.</h2>
+      <p class="lead">Algumas coisas não vão em nenhuma das duas lixeiras. Separar esses itens à parte é o que mantém as outras duas limpas.</p>
+    </div>
+    <div class="rest">
+      <article class="rcard">
+        <span class="tag"><i style="background:var(--rejeito)"></i>Rejeito</span>
+        <h3>Sem reaproveitamento</h3>
+        <ul class="chips">
+          <li>Papel higiênico</li><li>Absorventes e fraldas</li><li>Fitas e etiquetas adesivas</li><li>Embalagens engorduradas que não dá para limpar</li><li>Carnes e ossos</li>
+        </ul>
+        <p class="dest"><b>Destino:</b> lixeira comum, como a dos banheiros. Segue para o aterro sanitário, por isso quanto menos rejeito, melhor.</p>
+      </article>
+      <article class="rcard">
+        <span class="tag"><i style="background:var(--especial)"></i>Especial</span>
+        <h3>Precisa de destino próprio</h3>
+        <ul class="chips">
+          <li>Pilhas e baterias</li><li>Lâmpadas</li><li>Cartuchos de tinta e toners</li><li>Eletrônicos</li><li>Medicamentos vencidos</li><li>Óleo de cozinha</li><li>Bitucas de cigarro</li>
+        </ul>
+        <p class="dest"><b>Destino:</b> nunca nas lixeiras. Guarde à parte e leve a um ponto de entrega voluntária ou ao Ecoponto.</p>
+      </article>
+    </div>
+    <div class="casa">
+      <span class="lbl">Onde entregar</span>
+      <p><b>Ecoponto de Guarapuava:</b> Rua Tamoio, 787, de segunda a sexta, das 9h às 11h40 e das 13h às 16h. Os pontos de entrega voluntária recebem pilhas, baterias, eletrônicos e medicamentos vencidos.</p>
+      <a class="btn small" href="https://secom-guarapuava.github.io/GUARAPUAVA-VERDE/#ecoponto" target="_blank" rel="noopener"><span>Ver no Guarapuava Mais Verde</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 04 TESTE -->
+<section class="band t-green" id="teste">
+  <span class="ghost" aria-hidden="true">04</span>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">04 · Teste rápido</span>
+      <h2>Onde vai isso?</h2>
+      <p class="lead">Doze itens que aparecem todo dia numa secretaria. Escolha o destino e veja a resposta.</p>
+    </div>
+    <div class="quiz">
+      <div class="qcard" id="quiz" aria-live="polite">
+        <div id="qplay">
+          <div class="qmeta"><span id="qcount">Item 1 de 12</span><span id="qscore">0 acertos</span></div>
+          <div class="qbar"><i id="qbar"></i></div>
+          <div class="qitem"><span class="emo" id="qemo" aria-hidden="true">☕</span><span class="nome" id="qnome">Copinho de café descartável</span></div>
+          <div class="qopts" role="group" aria-label="Escolha o destino">
+            <button class="qopt" type="button" data-cat="reciclavel" id="opt-reciclavel"><i></i>Reciclável</button>
+            <button class="qopt" type="button" data-cat="organico" id="opt-organico"><i></i>Orgânico</button>
+            <button class="qopt" type="button" data-cat="rejeito" id="opt-rejeito"><i></i>Rejeito</button>
+            <button class="qopt" type="button" data-cat="especial" id="opt-especial"><i></i>Especial</button>
+          </div>
+          <div class="qfb" id="qfb">Toque no destino certo para este item.</div>
+          <div class="qnext"><button class="btn dark small" type="button" id="qnext" hidden><span>Próximo item</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+        </div>
+        <div class="qend" id="qend" hidden>
+          <span class="score" id="qfinal">12/12</span>
+          <p id="qmsg"></p>
+          <button class="btn dark small" type="button" id="qrestart"><span>Fazer de novo</span></button>
+        </div>
+      </div>
+      <div class="quiz-side">
+        <img src="assets/img/guarazinho-bracos-cruzados.png" alt="Guarazinho de braços cruzados">
+        <p class="lead">Os itens com pegadinha são os que mais aparecem misturados: guardanapo, copinho de café e marmita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 EQUIPE -->
+<section class="band t-paper" id="equipe">
+  <span class="ghost" aria-hidden="true">05</span>
+  <div class="wrap">
+    <div class="team">
+      <div class="team-art"><img src="assets/img/guarazinho-maos-na-cintura.png" alt="Guarazinho com as mãos na cintura"></div>
+      <div>
+        <div class="head">
+          <span class="eyebrow">05 · Quem recolhe</span>
+          <h2>A separação começa na sua mesa.</h2>
+          <p class="lead">E continua com a <b>equipe de limpeza</b>, que recolhe as lixeiras e leva cada saco ao destino certo. Ela não tem como desfazer uma mistura: separar resto de comida de papel exigiria abrir o saco e mexer no lixo, com risco e sem resultado. O trabalho dela depende do cuidado de quem descarta.</p>
+        </div>
+        <ul class="practices">
+          <li><h3>Respeite as placas</h3><p>Reciclável e orgânico em lixeiras diferentes, sempre.</p></li>
+          <li><h3>Nada de líquido</h3><p>Esvazie copos e garrafas na pia. Líquido vaza do saco e molha o papel.</p></li>
+          <li><h3>Cortante, embrulhado</h3><p>Embrulhe vidro quebrado e objetos cortantes em papel e avise. Evita acidentes no recolhimento.</p></li>
+          <li><h3>Combine com a equipe</h3><p>Defina onde ficam as lixeiras do setor e para onde vai cada saco no seu prédio.</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 CINCO RS -->
+<section class="band t-dark" id="cinco-rs">
+  <span class="ghost" aria-hidden="true">06</span>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">06 · Antes de descartar</span>
+      <h2>Lixo zero começa antes da lixeira.</h2>
+      <p class="lead">O resíduo mais fácil de separar é o que nem chegou a existir. Os cinco Rs da sustentabilidade, na rotina da secretaria:</p>
+    </div>
+    <ol class="rs">
+      <li><h3><span>R</span>epense</h3><p>Precisa mesmo imprimir? O documento digital circula mais rápido e não vira resíduo.</p></li>
+      <li><h3><span>R</span>ecuse</h3><p>Dispense copos, sacolas e talheres descartáveis. Tenha sua caneca e sua garrafa.</p></li>
+      <li><h3><span>R</span>eduza</h3><p>Imprima frente e verso e só o necessário. Peça apenas o material que vai usar.</p></li>
+      <li><h3><span>R</span>eutilize</h3><p>Rascunho vira bloco de anotações. Pastas, envelopes e caixas podem circular de novo.</p></li>
+      <li><h3><span>R</span>ecicle</h3><p>O que sobrar vai para a lixeira certa, limpo e seco.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 07 COMPOSTAGEM -->
+<section class="band t-paper" id="compostagem">
+  <span class="ghost" aria-hidden="true">07</span>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">07 · Compostagem</span>
+      <h2>Orgânico separado vira adubo.</h2>
+      <p class="lead">A compostagem é a <b>reciclagem dos resíduos orgânicos</b>. Bactérias, fungos e minhocas decompõem as sobras e geram um composto com aspecto de terra e cheiro de floresta.</p>
+    </div>
+    <div class="comp">
+      <div class="cycle">
+        <div class="center" aria-hidden="true">Ciclo dos<br>orgânicos</div>
+        <ol aria-label="Ciclo dos orgânicos">
+          <li class="c1"><b>1</b><span>Alimento</span></li>
+          <li class="c2"><b>2</b><span>Sobra separada</span></li>
+          <li class="c3"><b>3</b><span>Compostagem</span></li>
+          <li class="c4"><b>4</b><span>Adubo</span></li>
+          <li class="c5"><b>5</b><span>Nova colheita</span></li>
+        </ol>
+      </div>
+      <div class="facts">
+        <div class="fact"><h3>A receita</h3><p>Resíduo orgânico, rico em nitrogênio, misturado com matéria seca, como folhas e serragem, rica em carbono.</p></div>
+        <div class="fact"><h3>Menos aterro, menos poluição</h3><p>Compostar evita o chorume nos aterros e a liberação de metano, um dos gases que mais agravam o efeito estufa.</p></div>
+        <div class="fact"><h3>De volta para a terra</h3><p>O adubo melhora a fertilidade do solo e pode ir para hortas e para a agricultura agroecológica.</p></div>
+      </div>
+    </div>
+    <div class="cta-card">
+      <div>
+        <h3>Quer compostar em casa?</h3>
+        <p>A Cartilha da Compostagem do programa Composta Paraná ensina a montar uma composteira de balde, um minhocário e a usar o Método Lages de Compostagem.</p>
+      </div>
+      <div class="ctas">
+        <a class="btn solid" href="assets/docs/cartilha-da-compostagem-composta-parana.pdf" target="_blank" rel="noopener" download><span>Baixar a cartilha (PDF)</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
+        <a class="btn small" href="https://www.compostaparana.com.br" target="_blank" rel="noopener"><span>compostaparana.com.br</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 NO SEU SETOR -->
+<section class="band t-dark" id="checklist">
+  <span class="ghost" aria-hidden="true">08</span>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">08 · No seu setor</span>
+      <h2>Sua secretaria está pronta?</h2>
+      <p class="lead">Confira a separação no seu setor, item por item. A marcação fica salva só neste aparelho.</p>
+    </div>
+    <div class="check">
+      <div class="intro">
+        <h3>Lista do setor</h3>
+        <p>Sete passos para deixar as lixeiras e a rotina prontas para a separação.</p>
+        <div class="meter"><span class="num" id="cnum">0 de 7</span><div class="bar"><i id="cbar"></i></div><small id="cmsg">Comece pela lixeira de reciclável.</small></div>
+      </div>
+      <ul class="clist" id="clist">
+        <li><label for="c1"><input type="checkbox" id="c1"><span>Lixeira de reciclável identificada com a placa</span></label></li>
+        <li><label for="c2"><input type="checkbox" id="c2"><span>Lixeira de orgânico identificada com a placa, na copa e onde se consome alimento</span></label></li>
+        <li><label for="c3"><input type="checkbox" id="c3"><span>Rejeito na lixeira comum, como a dos banheiros</span></label></li>
+        <li><label for="c4"><input type="checkbox" id="c4"><span>Local à parte para especiais: pilhas, lâmpadas e toners</span></label></li>
+        <li><label for="c5"><input type="checkbox" id="c5"><span>Equipe de limpeza alinhada sobre o destino de cada saco</span></label></li>
+        <li><label for="c6"><input type="checkbox" id="c6"><span>Canecas e garrafas reutilizáveis no lugar dos descartáveis</span></label></li>
+        <li><label for="c7"><input type="checkbox" id="c7"><span>Colegas do setor conhecem este manual</span></label></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 09 MATERIAIS -->
+<section class="band t-paper" id="materiais">
+  <span class="ghost" aria-hidden="true">09</span>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">09 · Materiais</span>
+      <h2>Para compartilhar.</h2>
+      <p class="lead">Os materiais da Semana Lixo Zero ficam reunidos aqui, prontos para enviar aos colegas.</p>
+    </div>
+    <div class="mats">
+      <article class="mat">
+        <div class="thumb"><img src="assets/img/story-organico.png" alt="Story sobre lixo orgânico" loading="lazy"></div>
+        <div class="meta"><small>Story · 1080×1920</small><h3>Orgânico vira adubo</h3><p>O que vai na lixeira de orgânico.</p></div>
+        <a class="btn dark small" href="assets/img/story-organico.png" target="_blank" rel="noopener" download="story-semana-lixo-zero-organico.png"><span>Baixar PNG</span></a>
+      </article>
+      <article class="mat">
+        <div class="thumb"><img src="assets/img/story-reciclavel.png" alt="Story sobre lixo reciclável" loading="lazy"></div>
+        <div class="meta"><small>Story · 1080×1920</small><h3>Limpo e seco recicla</h3><p>O que vai na lixeira de reciclável.</p></div>
+        <a class="btn dark small" href="assets/img/story-reciclavel.png" target="_blank" rel="noopener" download="story-semana-lixo-zero-reciclavel.png"><span>Baixar PNG</span></a>
+      </article>
+      <article class="mat">
+        <div class="thumb duo"><img src="assets/img/placa-reciclavel.jpg" alt="Placa Lixo Reciclável" loading="lazy"><img src="assets/img/placa-organico.jpg" alt="Placa Lixo Orgânico" loading="lazy"></div>
+        <div class="meta"><small>Placas</small><h3>Placas das lixeiras</h3><p>Reciclável e orgânico, do Guarapuava Mais Verde.</p></div>
+        <p class="note">Nas lixeiras das secretarias</p>
+      </article>
+      <article class="mat">
+        <div class="thumb pdf"><img src="assets/img/capa-cartilha-compostagem.jpg" alt="Capa da Cartilha da Compostagem" loading="lazy"></div>
+        <div class="meta"><small>PDF · 16 páginas</small><h3>Cartilha da Compostagem</h3><p>Programa Composta Paraná.</p></div>
+        <a class="btn dark small" href="assets/docs/cartilha-da-compostagem-composta-parana.pdf" target="_blank" rel="noopener" download><span>Baixar PDF</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="logos">
+      <img class="gv" src="assets/img/logo-guarapuava-mais-verde.png" alt="Guarapuava Mais Verde">
+      <img class="pref" src="assets/img/logo-prefeitura-branco.png" alt="Prefeitura de Guarapuava, Governo Municipal">
+      <span class="sec">MEIO AMBIENTE<small>SECRETARIA MUNICIPAL</small></span>
+    </div>
+    <div class="foot-grid">
+      <p><b>Semana Lixo Zero Paraná 2026.</b> Mobilização estadual: Paraná Lixo Zero. Idealização: Instituto Lixo Zero Brasil. Em Guarapuava, uma ação da Secretaria Municipal de Meio Ambiente nas secretarias municipais, dentro do programa Guarapuava Mais Verde.</p>
+      <ul class="foot-links">
+        <li><a href="https://secom-guarapuava.github.io/GUARAPUAVA-VERDE/" target="_blank" rel="noopener">Guarapuava Mais Verde · coleta seletiva ↗</a></li>
+        <li><a href="https://www.compostaparana.com.br" target="_blank" rel="noopener">Composta Paraná ↗</a></li>
+        <li><a href="https://www.guarapuava.pr.gov.br" target="_blank" rel="noopener">guarapuava.pr.gov.br ↗</a></li>
+      </ul>
+    </div>
+    <p class="credit">Guarazinho é o mascote oficial do Guarapuava Mais Verde. Conteúdo de compostagem baseado na Cartilha da Compostagem do programa Composta Paraná.</p>
+  </div>
+</footer>
+
+<script>
+/* ===== Topo: fundo ao rolar + barra de progresso ===== */
+(function(){
+  const bar = document.getElementById('topbar'), prog = document.getElementById('progress');
+  const onScroll = ()=>{
+    const y = window.scrollY, h = document.documentElement.scrollHeight - innerHeight;
+    bar.classList.toggle('scrolled', y > 40);
+    prog.style.transform = `scaleX(${h > 0 ? Math.min(1, y / h) : 0})`;
+  };
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+})();
+
+/* ===== Trilho de capítulos ===== */
+(function(){
+  const links = [...document.querySelectorAll('.rail a')];
+  const map = new Map(links.map(a=>[a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.remove('on')); map.get(e.target.id)?.classList.add('on'); } });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  map.forEach((_, id)=>{ const s = document.getElementById(id); if(s) io.observe(s); });
+})();
+
+/* ===== Teste: onde vai isso? ===== */
+(function(){
+  const itens = [
+    {e:'☕', n:'Copinho de café descartável', c:'reciclavel', d:'Esvazie antes. Copo com café derramado suja o resto da lixeira.'},
+    {e:'🫘', n:'Borra e filtro de café', c:'organico', d:'Os dois vão juntos para o orgânico.'},
+    {e:'🧻', n:'Guardanapo usado', c:'organico', d:'Pegadinha: papel sujo não recicla, mas composta.'},
+    {e:'📄', n:'Folha de rascunho', c:'reciclavel', d:'Antes de descartar, use o verso para anotações.'},
+    {e:'🍵', n:'Sachê de chá', c:'organico', d:'Tire a etiqueta e o grampo antes.'},
+    {e:'🍱', n:'Marmita descartável', c:'reciclavel', d:'Pegadinha: o resto de comida vai para o orgânico e a embalagem, limpa, para o reciclável.'},
+    {e:'🔋', n:'Pilha usada', c:'especial', d:'Pilha contamina solo e água. Guarde à parte e leve a um ponto de entrega.'},
+    {e:'🧉', n:'Erva de chimarrão', c:'organico', d:'Escorra bem a água antes.'},
+    {e:'📦', n:'Caixa de papelão', c:'reciclavel', d:'Desmonte a caixa para ocupar menos espaço.'},
+    {e:'🚻', n:'Papel higiênico', c:'rejeito', d:'Papel higiênico usado não recicla nem composta. Vai para a lixeira comum do banheiro.'},
+    {e:'💡', n:'Lâmpada queimada', c:'especial', d:'Parece vidro, mas tem material que exige destino próprio.'},
+    {e:'🍌', n:'Casca de banana', c:'organico', d:'Vira adubo na compostagem.'}
+  ];
+  const nomes = {reciclavel:'Reciclável', organico:'Orgânico', rejeito:'Rejeito', especial:'Especial'};
+  const $ = id => document.getElementById(id);
+  const opts = [...document.querySelectorAll('.qopt')];
+  let ordem = itens.slice(), i = 0, pts = 0;
+
+  function mostra(){
+    const it = ordem[i];
+    $('qemo').textContent = it.e; $('qnome').textContent = it.n;
+    $('qcount').textContent = `Item ${i+1} de ${ordem.length}`;
+    $('qscore').textContent = `${pts} ${pts === 1 ? 'acerto' : 'acertos'}`;
+    $('qbar').style.width = `${(i / ordem.length) * 100}%`;
+    $('qfb').className = 'qfb'; $('qfb').textContent = 'Toque no destino certo para este item.';
+    opts.forEach(o=>{ o.disabled = false; o.classList.remove('right','wrong'); });
+    $('qnext').hidden = true;
+  }
+  opts.forEach(o=> o.addEventListener('click', ()=>{
+    const it = ordem[i], ok = o.dataset.cat === it.c;
+    if(ok) pts++;
+    opts.forEach(x=>{ x.disabled = true; if(x.dataset.cat === it.c) x.classList.add('right'); });
+    if(!ok) o.classList.add('wrong');
+    $('qfb').className = 'qfb ' + (ok ? 'ok' : 'no');
+    $('qfb').innerHTML = `<span><b>${ok ? 'Certo!' : 'Quase. Vai no ' + nomes[it.c] + '.'}</b> ${it.d}</span>`;
+    $('qscore').textContent = `${pts} ${pts === 1 ? 'acerto' : 'acertos'}`;
+    $('qbar').style.width = `${((i+1) / ordem.length) * 100}%`;
+    $('qnext').hidden = false;
+    $('qnext').querySelector('span').textContent = i + 1 < ordem.length ? 'Próximo item' : 'Ver resultado';
+    $('qnext').focus({preventScroll:true});
+  }));
+  $('qnext').addEventListener('click', ()=>{
+    i++;
+    if(i < ordem.length) return mostra();
+    $('qplay').hidden = true; $('qend').hidden = false;
+    $('qfinal').textContent = `${pts}/${ordem.length}`;
+    $('qmsg').textContent = pts === ordem.length ? 'Separação perfeita. Sua secretaria agradece.' :
+      pts >= 9 ? 'Muito bom. Revise as pegadinhas e chegue lá.' : 'Volte às duas lixeiras do capítulo 02 e tente de novo.';
+  });
+  $('qrestart').addEventListener('click', ()=>{
+    ordem = itens.slice().sort(()=>Math.random() - .5); i = 0; pts = 0;
+    $('qend').hidden = true; $('qplay').hidden = false; mostra();
+  });
+  mostra();
+})();
+
+/* ===== Lista da secretaria (salva só neste aparelho) ===== */
+(function(){
+  const KEY = 'slz-guarapuava-checklist-v1';
+  const boxes = [...document.querySelectorAll('#clist input')];
+  let salvo = {};
+  try { salvo = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e) { salvo = {}; }
+  boxes.forEach(b=>{ b.checked = !!salvo[b.id]; });
+  function atualiza(){
+    const n = boxes.filter(b=>b.checked).length, t = boxes.length;
+    document.getElementById('cnum').textContent = `${n} de ${t}`;
+    document.getElementById('cbar').style.width = `${(n / t) * 100}%`;
+    document.getElementById('cmsg').textContent = n === t ? 'Tudo pronto. Seu setor está separando certo.' :
+      n === 0 ? 'Comece pela lixeira de reciclável.' : `Faltam ${t - n} ${t - n === 1 ? 'item' : 'itens'}.`;
+  }
+  boxes.forEach(b=> b.addEventListener('change', ()=>{
+    const s = {}; boxes.forEach(x=>{ if(x.checked) s[x.id] = 1; });
+    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e) {}
+    atualiza();
+  }));
+  atualiza();
+})();
+</script>
+</body>
+</html>
